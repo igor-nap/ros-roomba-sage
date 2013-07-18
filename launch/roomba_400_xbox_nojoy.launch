@@ -1,0 +1,85 @@
+<launch>
+	<node name="roomba400_light_node" pkg="roomba_500_series" type="roomba400_light_node" output="screen" clear_params="true">
+		<param name="roomba/port" type="str" value="/dev/ttyUSB0"/>
+	</node>
+	
+	<node name="roomba_400_xbox_joy" pkg="roomba_400" type="roomba_400_noqt.py" output="screen" required="true">
+
+		<param name="ButtonEmergency" value="7" />
+		<param name="ButtonLand" value="4" />
+		<param name="ButtonTakeoff" value="5" />
+
+		<param name="AxisRoll" value="3" />
+		<param name="AxisPitch" value="4" />
+		<param name="AxisYaw" value="3" />
+		<param name="AxisZ" value="1" />
+
+		<param name="ScaleRoll" value="1" />
+		<param name="ScalePitch" value="1" />
+		<param name="ScaleYaw" value="1" />
+		<param name="ScaleZ" value="1" />
+	</node>
+</launch>
+
+
+
+<!-- XBOX Controller --><!--
+
+
+	<node name="roomba_400_joy_xbox" pkg="roomba_400" type="roomba_400_joy.py" output="screen" required="true">
+
+		<param name="ButtonEmergency" value="7" />
+		<param name="ButtonLand" value="4" />
+		<param name="ButtonTakeoff" value="5" />
+
+		<param name="AxisRoll" value="3" />
+		<param name="AxisPitch" value="4" />
+		<param name="AxisYaw" value="0" />
+		<param name="AxisZ" value="1" />
+
+		<param name="ScaleRoll" value="1" />
+		<param name="ScalePitch" value="1" />
+		<param name="ScaleYaw" value="1" />
+		<param name="ScaleZ" value="1" />
+	</node>
+
+axes[LJ-X[0],LJ-Y[1],LT[2],RJ-X[3],RJ-Y[4],RT[5],DPAD-X[6],DPAD-Y[7]]
+buttons[A[0],B[1],X[2],Y[3],LB[4],RB[5],BACK[6],START[7],XBOX[8],LJPUSH[9],RJPUSH[10]]
+
+Notes
+LJ-X/RJ-X : left/right is +/-
+LJ-Y/RJ-Y : up/down is +/-
+LT/RT - Left/right triggers, +1 default, scale to -1 at maximum downpress
+LB/RB - Left/right bumpers (throw grenade in FPS)
+
+--><!-- /XBOX Controller -->
+
+<!-- PS3 Controller --><!--
+
+
+	<node name="roomba_400_joy_ps3" pkg="roomba_400" type="roomba_400_joy.py" output="screen" required="true">
+		
+		<param name="ButtonEmergency"	value="3" />
+		<param name="ButtonLand"		value="10" />
+		<param name="ButtonTakeoff"		value="11" />
+
+		
+		<param name="AxisRoll"			value="2" />
+		<param name="AxisPitch"			value="3" />
+		<param name="AxisYaw"			value="2" />
+		<param name="AxisZ"				value="1" />
+
+		
+		<param name="ScaleRoll"			value="1" />
+		<param name="ScalePitch"		value="1" />
+		<param name="ScaleYaw"			value="2" />
+		<param name="ScaleZ"			value="0.5" />
+	</node>
+
+axes = [LJX[0],LJY[1],RJX[2],RJY[3],TILTX[4],TILTY[5]]
+LJ/RJ_X = left/right is +ve/-ve
+LJ/RJ_Y = up/down is +ve/-ve
+
+buttons = [SELECT[0],JRPUSH[1],JLPUSH[2],START[3],DPAD_UP[4],DPAD_R[5],DPAD_D[6],DPAD_L[7],LT[8],RT[9],
+			LB[10],RB[11],TRI[12],CIRC[13],X[14],SQUARE[15],PS3[16]]
+--><!-- PS3 Controller -->

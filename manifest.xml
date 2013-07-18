@@ -1,0 +1,18 @@
+<package>
+  <description brief="roomba_400">
+
+     roomba_400
+
+  </description>
+  <author>Igor</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/roomba_400</url>
+  <depend package="std_msgs"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="joy" />
+
+</package>
+
+

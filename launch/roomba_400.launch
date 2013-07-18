@@ -1,0 +1,39 @@
+<launch>
+	<node name="joy_node" pkg="joy" type="joy_node" output="screen" clear_params="true">
+		<param name="dev" type="str" value="/dev/input/js0"/>
+	</node>
+
+	<node name="roomba400_light_node" pkg="roomba_500_series" type="roomba400_light_node" output="screen" clear_params="true">
+		<param name="roomba/port" type="str" value="/dev/ttyUSB0"/>
+	</node>
+	
+	<!-- Launches the joystick controller -->
+	<node name="roomba_400_joy" pkg="roomba_400" type="roomba_400_joy.py" output="screen" required="true">
+		<!-- Configures the joystick button mapping -->
+		<param name="ButtonEmergency"	value="3" />
+		<param name="ButtonLand"		value="10" />
+		<param name="ButtonTakeoff"		value="11" />
+
+		<!-- Configures the joystick axis mapping -->
+		<param name="AxisRoll"			value="2" />
+		<param name="AxisPitch"			value="3" />
+		<param name="AxisYaw"			value="2" />
+		<param name="AxisZ"				value="1" />
+
+		<!-- Configures the joystick mapping -->
+		<param name="ScaleRoll"			value="1" />
+		<param name="ScalePitch"		value="1" />
+		<param name="ScaleYaw"			value="2" />
+		<param name="ScaleZ"			value="0.5" />
+	</node>
+</launch>
+
+<!-- PS3 Controller --><!--
+
+axes = [LJX[0],LJY[1],RJX[2],RJY[3],TILTX[4],TILTY[5]]
+LJ/RJ_X = left/right is +ve/-ve
+LJ/RJ_Y = up/down is +ve/-ve
+
+buttons = [SELECT[0],JRPUSH[1],JLPUSH[2],START[3],DPAD_UP[4],DPAD_R[5],DPAD_D[6],DPAD_L[7],LT[8],RT[9],
+			LB[10],RB[11],TRI[12],CIRC[13],X[14],SQUARE[15],PS3[16]]
+--><!-- PS3 Controller -->
